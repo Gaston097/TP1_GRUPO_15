@@ -9,6 +9,8 @@ public class Principal {
 		
 		System.out.println("ID genero: "+gen.getId()+" - Nombre: "+gen.getNombre());
 		
+		//prueba
+		
 	}
 
 }
