@@ -15,6 +15,12 @@ public class Principal {
 		System.out.println(entrada2.toString());
 		
 		//
+		
+		//Entrada Infantil
+		
+		Entradas entrada3 = new EntradasInfantiles(7, true);
+		
+		System.out.println(entrada3.toString());
 	}
 
 }
