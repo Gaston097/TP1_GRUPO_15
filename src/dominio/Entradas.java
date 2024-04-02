@@ -18,18 +18,15 @@ public class Entradas {
 		this.fechaEvento = "fechaEvento";
 		this.horaEvento = "horaEvento";
 		this.tiempoDuracion = "tiempoDuracion";
-		this.costo = 5000;
 	}
 	
-	public Entradas(int numEntrada, String nombreShow, String fechaEvento, String horaEvento, String tiempoDuracion,
-			double costo) {
+	public Entradas(int numEntrada, String nombreShow, String fechaEvento, String horaEvento, String tiempoDuracion) {
 		super();
 		this.numEntrada = numEntrada;
 		this.nombreShow = nombreShow;
 		this.fechaEvento = fechaEvento;
 		this.horaEvento = horaEvento;
 		this.tiempoDuracion = tiempoDuracion;
-		this.costo = costo;
 	}
 	
 	//Getters and setters
