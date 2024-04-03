@@ -38,7 +38,7 @@ public class TipoDeporte {
     //TOSTRING 
 	@Override
 	public String toString() {
-		return "TipoDeporte [id=" + id + ", Nombre=" + Nombre + ", internacional=" + internacional + "]";
+		return "[ID = " + id + ", Nombre = " + Nombre + ", Es internacional = " + internacional + "]";
 	}
     
     

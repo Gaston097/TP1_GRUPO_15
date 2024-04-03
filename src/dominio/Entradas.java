@@ -1,28 +1,34 @@
 package dominio;
+import java.time.LocalTime;
+import java.time.LocalDate;
 
-public class Entradas {
+
+public abstract class Entradas {
 	
 	//Atributos
 	private int numEntrada;
-	private String nombreShow;
-	private String fechaEvento;
-	private String horaEvento;
-	private String tiempoDuracion;
+	private final String nombreShow;
+	private LocalDate fechaEvento;
+	private LocalTime horaEvento;
+	private LocalTime tiempoDuracion;
 	private double costo;
+	
+	static int cont = 0;
 	
 	//Constructores
 	
 	public Entradas() {
-		this.numEntrada = 123456;
-		this.nombreShow = "Nombre Show";
-		this.fechaEvento = "fechaEvento";
-		this.horaEvento = "horaEvento";
-		this.tiempoDuracion = "tiempoDuracion";
+		cont++;
+		this.numEntrada = cont;
+		this.nombreShow = "Predeterminado";
+		this.fechaEvento = LocalDate.now();
+		this.horaEvento = LocalTime.now();
+		this.tiempoDuracion = LocalTime.now();
 	}
 	
-	public Entradas(int numEntrada, String nombreShow, String fechaEvento, String horaEvento, String tiempoDuracion) {
-		super();
-		this.numEntrada = numEntrada;
+	public Entradas(String nombreShow, LocalDate fechaEvento, LocalTime horaEvento, LocalTime tiempoDuracion) {
+		cont++;
+		this.numEntrada = cont;
 		this.nombreShow = nombreShow;
 		this.fechaEvento = fechaEvento;
 		this.horaEvento = horaEvento;
@@ -43,31 +49,31 @@ public class Entradas {
 		return nombreShow;
 	}
 
-	public void setNombreShow(String nombreShow) {
-		this.nombreShow = nombreShow;
-	}
+//	public void setNombreShow(String nombreShow) {
+//		this.nombreShow = nombreShow;
+//	}
 
-	public String getFechaEvento() {
+	public LocalDate getFechaEvento() {
 		return fechaEvento;
 	}
 
-	public void setFechaEvento(String fechaEvento) {
+	public void setFechaEvento(LocalDate fechaEvento) {
 		this.fechaEvento = fechaEvento;
 	}
 
-	public String getHoraEvento() {
+	public LocalTime getHoraEvento() {
 		return horaEvento;
 	}
 
-	public void setHoraEvento(String horaEvento) {
+	public void setHoraEvento(LocalTime horaEvento) {
 		this.horaEvento = horaEvento;
 	}
 
-	public String getTiempoDuracion() {
+	public LocalTime getTiempoDuracion() {
 		return tiempoDuracion;
 	}
 
-	public void setTiempoDuracion(String tiempoDuracion) {
+	public void setTiempoDuracion(LocalTime tiempoDuracion) {
 		this.tiempoDuracion = tiempoDuracion;
 	}
 
@@ -83,8 +89,11 @@ public class Entradas {
 	
 	@Override
 	public String toString() {
-		return "Entradas [numEntrada = " + numEntrada + ", nombreShow = " + nombreShow + ", fechaEvento = " + fechaEvento
-				+ ", horaEvento = " + horaEvento + ", tiempoDuracion = " + tiempoDuracion + ", costo = " + costo + "]";
+		return "Entradas [Número de entrada = " + numEntrada + ", Nombre del show = " + nombreShow + ", Fecha = " + fechaEvento
+				+ ", Hora = " + horaEvento + ", Duración = " + tiempoDuracion + ", Costo = " +"$"+ costo + "]";
 	}
+	
+	//Método abstracto
+	public abstract boolean eventoYaOcurrio();
 
 }

@@ -1,38 +1,40 @@
 package dominio;
+import java.time.LocalTime;
+import java.time.LocalDate;
 
 public class EntradasInfantiles extends Entradas implements ICalcularCostos{
 	
 	//atributos
 
-	private int edadNinio;
+	private int edad;
 	private boolean souvenir;
 	
 	//constructores
 	
-	public EntradasInfantiles(int edadNinio, boolean souvenir) {
+	public EntradasInfantiles(int edad, boolean souvenir) {
 		super();
-		this.edadNinio = edadNinio;
+		this.edad = edad;
 		this.souvenir = souvenir;
 		CalcularCostoDeEntrada();
 	}
 	
-	public EntradasInfantiles(int numEntrada, String nombreShow, String fechaEvento, String horaEvento,
-			String tiempoDuracion, double costo, int edadNinio, boolean souvenir) {
-		super(numEntrada, nombreShow, fechaEvento, horaEvento, tiempoDuracion);
-		this.edadNinio = edadNinio;
+	public EntradasInfantiles(String nombreShow, LocalDate fechaEvento, LocalTime horaEvento,
+			LocalTime tiempoDuracion, int edad, boolean souvenir) {
+		super(nombreShow, fechaEvento, horaEvento, tiempoDuracion);
+		this.edad = edad;
 		this.souvenir = souvenir;
 		CalcularCostoDeEntrada();
 	}
 	
 	//Getters and Setters
 	
-	public int getEdadNinio() {
-		return edadNinio;
+	public int getEdad() {
+		return edad;
 	}
 
 
-	public void setEdadNinio(int edadNinio) {
-		this.edadNinio = edadNinio;
+	public void setEdad(int edad) {
+		this.edad = edad;
 	}
 
 
@@ -49,12 +51,18 @@ public class EntradasInfantiles extends Entradas implements ICalcularCostos{
 	//ToString
 	@Override
 	public String toString() {
-		return super.toString() + "\n EntradasInfantiles [edadNinio = " + edadNinio + ", souvenir = " + souvenir  + "]";
+		return super.toString() + "\n EntradasInfantiles [Edad = " + edad + ", Souvenir = " + souvenir  + "]";
 	}
+	
+	//Retorna false si el evento todavia no ocurrió
+		public boolean eventoYaOcurrio() {
+			LocalDate fechaHoy = LocalDate.now();
+			return !fechaHoy.isBefore(this.getFechaEvento()) && !!fechaHoy.isEqual(this.getFechaEvento());
+		}
 	
 	//Abstracto
 	public void CalcularCostoDeEntrada() {
-		if(edadNinio < 8) {
+		if(edad < 8) {
 			this.setCosto(250.0); 			
 		}else {
 			this.setCosto(500.0);

@@ -40,7 +40,7 @@ public class Banda {
 
 	@Override
 	public String toString() {
-		return "Banda [nombre=" + nombre + ", generoBanda=" + generoBanda + "]";
+		return "[Nombre = " + nombre + ", Genero = " + generoBanda + "]";
 	}
 	
 	

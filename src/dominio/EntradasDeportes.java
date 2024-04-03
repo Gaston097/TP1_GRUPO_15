@@ -1,4 +1,6 @@
 package dominio;
+import java.time.LocalTime;
+import java.time.LocalDate;
 
 public class EntradasDeportes extends Entradas implements ICalcularCostos {
 	
@@ -10,9 +12,9 @@ public class EntradasDeportes extends Entradas implements ICalcularCostos {
 		CalcularCostoDeEntrada();
 	}
 
-	public EntradasDeportes(int numEntrada, String nombreShow, String fechaEvento, String horaEvento,
-			String tiempoDuracion, double costo, TipoDeporte tipoDeporte) {
-		super(numEntrada, nombreShow, fechaEvento, horaEvento, tiempoDuracion);
+	public EntradasDeportes(String nombreShow, LocalDate fechaEvento, LocalTime horaEvento,
+			LocalTime tiempoDuracion, TipoDeporte tipoDeporte) {
+		super(nombreShow, fechaEvento, horaEvento, tiempoDuracion);
 		this.tipoDeporte = tipoDeporte;
 		CalcularCostoDeEntrada();
 	}
@@ -53,9 +55,15 @@ public class EntradasDeportes extends Entradas implements ICalcularCostos {
 		
 	}
 	
+	//Retorna false si el evento todavia no ocurrió
+	public boolean eventoYaOcurrio() {
+		LocalDate fechaHoy = LocalDate.now();
+		return !fechaHoy.isBefore(this.getFechaEvento()) && !!fechaHoy.isEqual(this.getFechaEvento());
+	}
+	
 	@Override
 	public String toString() {
-		return super.toString() + "\n EntradasDeportes [tipoDeporte=" + tipoDeporte + "]";
+		return super.toString() + "\n EntradasDeportes [Tipo de deporte = " + tipoDeporte + "]";
 	}
 	
 }

@@ -1,4 +1,6 @@
 package dominio;
+import java.time.LocalTime;
+import java.time.LocalDate;
 
 public class EntradasTeatro extends Entradas implements ICalcularCostos{
 	
@@ -14,9 +16,9 @@ public class EntradasTeatro extends Entradas implements ICalcularCostos{
 		CalcularCostoDeEntrada();
 	}
 
-	public EntradasTeatro(int numEntrada, String nombreShow, String fechaEvento, String horaEvento,
-			String tiempoDuracion, double costo, Genero genero, Actores actor) {
-		super(numEntrada, nombreShow, fechaEvento, horaEvento, tiempoDuracion);
+	public EntradasTeatro(String nombreShow, LocalDate fechaEvento, LocalTime horaEvento,
+			LocalTime tiempoDuracion, Genero genero, Actores actor) {
+		super(nombreShow, fechaEvento, horaEvento, tiempoDuracion);
 		this.genero = genero;
 		this.actor = actor;
 		CalcularCostoDeEntrada();
@@ -44,10 +46,17 @@ public class EntradasTeatro extends Entradas implements ICalcularCostos{
 	public void CalcularCostoDeEntrada() {
 		this.setCosto(1350.50); //Valor fijo 1350.50
 	}
+	
+	//Retorna false si el evento todavia no ocurrió
+		public boolean eventoYaOcurrio() {
+			LocalDate fechaHoy = LocalDate.now();
+			return !fechaHoy.isBefore(this.getFechaEvento());
+		}
+	
 	 //Método toString
 	@Override
 	public String toString() {
-		return super.toString() + " \nEntradasTeatro [genero=" + genero + ", actor=" + actor + "]";
+		return super.toString() + " \nEntradasTeatro [Género = " + genero + ", Actor = " + actor + "]";
 	}
 	
 }

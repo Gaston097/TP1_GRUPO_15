@@ -48,7 +48,7 @@ public class Actores {
 	
 	@Override
 	public String toString() {
-		return "Actores [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + "]";
+		return "[ID = " + id + ", Nombre = " + nombre + ", Apellido = " + apellido + ", Edad = " + edad + "]";
 	}
 	
 }
