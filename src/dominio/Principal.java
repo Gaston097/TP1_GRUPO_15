@@ -31,6 +31,16 @@ public class Principal {
 		
 		System.out.println(entrada4.toString());
 		System.out.println(entrada5.toString());
+		
+		//Entradas Recitales 
+		
+		Genero genero1 = new Genero("pop", 3);
+		Genero genero2 = new Genero("rock", 4);
+		Banda banda1 = new Banda("MaroonV", genero1);
+		Banda bsoporte = new Banda("otra banda", genero2);
+		Entradas entrada6 = new  EntradasRecitales("vip", banda1, bsoporte);
+		
+		System.out.println(entrada6.toString());
 	}
 
 }
