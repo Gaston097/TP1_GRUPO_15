@@ -18,9 +18,19 @@ public class Principal {
 		
 		//Entrada Infantil
 		
-		Entradas entrada3 = new EntradasInfantiles(7, true);
-		
+		Entradas entrada3 = new EntradasInfantiles(10, true);
 		System.out.println(entrada3.toString());
+		
+		//Entradas Deportes
+		
+		TipoDeporte tp = new TipoDeporte(1, "hockey", false);
+		Entradas entrada4 = new EntradasDeportes(tp);
+		
+		TipoDeporte tp2 = new TipoDeporte(2, "futbol", true);
+		Entradas entrada5 = new EntradasDeportes(tp2);
+		
+		System.out.println(entrada4.toString());
+		System.out.println(entrada5.toString());
 	}
 
 }
