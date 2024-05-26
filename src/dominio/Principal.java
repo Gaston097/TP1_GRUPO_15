@@ -6,7 +6,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 		// Prueba de clases
-
+		//commit de prueba
 		
 		//Entrada teatro
 		System.out.println("ENTRADAS TEATRO: \n");
